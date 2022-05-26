@@ -1,0 +1,15 @@
+{{> header}}
+
+<h2>Peliculas recientes:</h2>
+
+<ul>
+    {{#each peliculas}}
+    
+        <li>{{this.titulo}}</li>
+        <li>{{this.imagen}}</li>
+        <li>{{this.descripcion}}</li>
+    {{/each}}
+</ul>
+
+
+{{> footer}}
