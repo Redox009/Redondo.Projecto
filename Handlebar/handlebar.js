@@ -1,8 +1,13 @@
 const express = require('express')
 const fs = require('fs')
 const app = express()
+const socket = io()
 
 const { engine } = require('express-handlebars')
+const { Server } = require('socket.io');
+
+const server = http.createServer(app);
+const io = new Server(server);
 
 const engineDirs = engine({
   extname: '.hbs',
@@ -36,10 +41,16 @@ const peliculas =[
     }
 ]
     
+server.on("connection", (socket) => {
+    // send a message to the client
+    socket.send(app.get('', (req, res) => {
+        return res.render('layouts/index', peliculas)
+      })
+    }));
 
-app.get('', (req, res) => {
-    return res.render('layouts/index', peliculas)
-  })
+
+
+
 
 
 
